@@ -4,7 +4,8 @@ function App() {
 
   return (
     <div>
-      <Menu />
+      <Login SignUp App
+        />
     </div>
   )
 }
