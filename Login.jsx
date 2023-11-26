@@ -3,31 +3,38 @@ import { useState } from 'react';
 
 
 function Login () {
-    const [ action , setAction ] = useState('Login');
-    return(
-        <div className="container">
-            <div className="parent">
-                <div className="text">{action}</div>
-                <div className="underline"></div>
-                <div className="inputs">
-                    {action ==='Login'? <div></div> :<div className="input">
-                        <input type="text" placeholder='name' className='name'/>
-                    </div>}
-                    <div className="input">
-                        <input type="email" placeholder='email' className='email'/>
-                    </div>
-                    <div className="input">
-                        <input type="password" placeholder='password ' className='password'/>
-                    </div>
+   
+const [ action , setAction ]  = useState('Login');
+
+return(
+    <div className='container'>
+        <div className="header">
+            <div className="text">{action}</div>
+            <div className="underline"></div>
+            <div className="inputs">
+                {action === 'Login' ? <div></div> :<div className="input">
+                <i className="fa-solid fa-user"></i>
+                    <input type="text" placeholder='Name' />
+                </div> }
+                <div className="input">
+                <i className="fa-solid fa-envelope"></i>
+                    <input type="email" placeholder='Email'/>
                 </div>
-                {action==='SignUp'?<div></div> : <div className="click">forget password ? <span>Click Me?</span></div>}
-                <div className="submit-container">
-                    <div className={action==="Login"? "submit gray":"submit"} onClick={() =>{setAction('SignUp')}}>Submit</div>
-                    <div className={action==="SignUp" ? "submit gray" :"submit"} onClick={() =>{setAction('Login')}}>Login</div>
+                <div className="input">
+                <i className="fa-solid fa-lock"></i>
+                    <input type="password" placeholder='Passwrod'/>
                 </div>
             </div>
+            {action === 'SignUp' ? <div></div> :<div className="forget">
+                Forget the password? <span>CLick Me!</span>
+            </div> }
+            <div className="submit-container">
+                <div className={action === 'Login'?'submit gray':'submit'} onClick={() => {setAction('SignUp')}}>Submit</div>
+                <div className={action === 'SignUp'?'submit gray':'submit'} onClick={() =>{setAction('Login')}}>Login</div>
+            </div>
         </div>
-    )
+    </div>
+)
 }
 
 export default Login
